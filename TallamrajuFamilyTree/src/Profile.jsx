@@ -1,0 +1,63 @@
+import Header from './Header';
+import './Profile.css';
+import {useNavigate, Link} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import Members, {Children} from './data/family';
+
+function Profile(props) {
+    const ob = useParams();
+    console.log('props....', props, ' ',ob);
+    const id = props.id ?? ob?.id;
+    const family = Members[id];
+    const children = Children[id];
+    const image= family?.image;
+    const parent = family?.parent;
+    const parentPerson =  parent != null ? Members[parent] : null;
+    const spouse = family?.spouse;
+    const spousePerson = spouse != null ? Members[spouse] : null;
+    const spouseImage = spousePerson?.image;
+
+    return (
+        <div className='screen'>
+            <div className='page'>
+                <Header />
+                { !!family && <div className='profile'>
+                        {!!parentPerson && 
+                            <div className='parentLink'>
+                                <Link key = {parent} to={`/profile/${parent}`} >
+                                    {parentPerson.firstName}
+                                </Link>
+                            </div>
+                        }
+                        <div className='persons'>
+                            <div className='person-details'>
+                                <img src={require('./images/'+image)} />
+                                <div className='name'> {family.firstName + " " + family.lastName} </div>
+                            </div>
+
+                            {!!family.spouse && 
+                                <div className='person-details'>
+                                    <img src={require('./images/'+spouseImage)}/>
+                                    <div className='name'> {spousePerson.firstName + " " + spousePerson.firstName} </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div className='links'>
+                {children?.map((childId, index) => {
+                    const child = Members[childId];
+                    const childName = child.firstName;
+                    return (
+                        <Link className="child-link" key = {childId} to={`/profile/${childId}`} >{childName}</Link>
+                    );
+                })}
+                        
+            </div>
+        </div>
+    );
+}
+
+export default Profile;
