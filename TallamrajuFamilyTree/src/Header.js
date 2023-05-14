@@ -1,5 +1,5 @@
 import './App.css';
-import {useNavigate, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 function Header() {
     return (
         <div className="header">

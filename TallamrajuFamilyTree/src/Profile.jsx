@@ -1,6 +1,6 @@
 import Header from './Header';
 import './Profile.css';
-import {useNavigate, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import Members, {Children} from './data/family';
 
@@ -31,14 +31,17 @@ function Profile(props) {
                         }
                         <div className='persons'>
                             <div className='person-details'>
-                                <img src={require('./images/'+image)} />
-                                <div className='name'> {family.firstName + " " + family.lastName} </div>
+                                <img src={require('./images/'+image)} alt="profileImage" width="200" height="200"/>
+                                <div className='name'> {family.firstName} </div>
                             </div>
 
                             {!!family.spouse && 
                                 <div className='person-details'>
-                                    <img src={require('./images/'+spouseImage)}/>
-                                    <div className='name'> {spousePerson.firstName + " " + spousePerson.firstName} </div>
+                                    <img src={require('./images/'+spouseImage)} alt="spouseImage" width="200" height="200"/>
+                                    <div className='name'> 
+                                        {spousePerson.firstName}
+                                        {!!spousePerson.lastName ? ` ${spousePerson.lastName}` : ""} 
+                                    </div>
                                 </div>
                             }
                         </div>
