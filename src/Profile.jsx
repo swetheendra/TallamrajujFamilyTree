@@ -38,7 +38,7 @@ function Profile(props) {
                             {!!family.spouse && 
                                 <div className='person-details'>
                                     <img src={require('./images/'+spouseImage)}/>
-                                    <div className='name'> {spousePerson.firstName + " " + spousePerson.firstName} </div>
+                                    <div className='name'> {spousePerson.firstName + " " + spousePerson.lastName} </div>
                                 </div>
                             }
                         </div>
