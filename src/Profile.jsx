@@ -25,7 +25,7 @@ function Profile(props) {
                         {!!parentPerson && 
                             <div className='parentLink'>
                                 <Link key = {parent} to={`/profile/${parent}`} >
-                                    {parentPerson.firstName}
+                                    <img src={require('./images/uparrow.png')} alt="arrow" width="20" height="20"/>
                                 </Link>
                             </div>
                         }
