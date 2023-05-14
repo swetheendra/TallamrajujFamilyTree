@@ -11,7 +11,7 @@ function App() {
   const { instance, accounts } = useMsal();
   console.log('details....', instance, accounts);
   const account = useAccount(accounts[0] || {});
-  console.log('details....', account);
+  console.log('account....', account);
 
   useEffect(() => {
     console.log('inside....');
