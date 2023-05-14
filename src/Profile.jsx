@@ -31,14 +31,17 @@ function Profile(props) {
                         }
                         <div className='persons'>
                             <div className='person-details'>
-                                <img src={require('./images/'+image)} alt="profileImage"/>
-                                <div className='name'> {family.firstName + " " + family.lastName} </div>
+                                <img src={require('./images/'+image)} alt="profileImage" width="200" height="200"/>
+                                <div className='name'> {family.firstName} </div>
                             </div>
 
                             {!!family.spouse && 
                                 <div className='person-details'>
-                                    <img src={require('./images/'+spouseImage)} alt="spouseImage"/>
-                                    <div className='name'> {spousePerson.firstName + " " + spousePerson.lastName} </div>
+                                    <img src={require('./images/'+spouseImage)} alt="spouseImage" width="200" height="200"/>
+                                    <div className='name'> 
+                                        {spousePerson.firstName}
+                                        {!!spousePerson.lastName ? ` ${spousePerson.lastName}` : ""} 
+                                    </div>
                                 </div>
                             }
                         </div>
