@@ -7,7 +7,7 @@ import { useMsal, useAccount, useIsAuthenticated } from "@azure/msal-react";
 function App() {
 
   const isAuthenticated = useIsAuthenticated();
-  console.log('is authn....', isAuthenticated);
+  console.log('is authenticated....', isAuthenticated);
   const { instance, accounts } = useMsal();
   console.log('details....', instance, accounts);
   const account = useAccount(accounts[0] || {});
