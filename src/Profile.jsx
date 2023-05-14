@@ -1,6 +1,5 @@
 import Header from './Header';
 import './Profile.css';
-import {useNavigate, Link} from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import Members, {Children} from './data/family';
 
@@ -31,13 +30,13 @@ function Profile(props) {
                         }
                         <div className='persons'>
                             <div className='person-details'>
-                                <img src={require('./images/'+image)} />
+                                <img src={require('./images/'+image)} alt="profileImage"/>
                                 <div className='name'> {family.firstName + " " + family.lastName} </div>
                             </div>
 
                             {!!family.spouse && 
                                 <div className='person-details'>
-                                    <img src={require('./images/'+spouseImage)}/>
+                                    <img src={require('./images/'+spouseImage)} alt="spouseImage"/>
                                     <div className='name'> {spousePerson.firstName + " " + spousePerson.lastName} </div>
                                 </div>
                             }
