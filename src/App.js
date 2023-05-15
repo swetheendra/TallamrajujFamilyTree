@@ -2,13 +2,26 @@ import Profile from './Profile';
 import { Route, Routes } from 'react-router-dom';
 
 import { useEffect } from "react"
+import jwt_decode from "jwt-decode";
 
 function App() {
 
   useEffect(() => {
-    fetch("https://tallamrajutree.azurewebsites.net/.auth/me")
+    console.log('inside effect....');
+    fetch("https://reqres.in/api/users/2",{
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
     .then(resp => resp.json())
-    .then(data => console.log('data.....', data))
+    .then(data => {
+      console.log('data.....', data);
+      const token = data[0].id_token;
+      const decoded = jwt_decode(token);
+      const hasRole = decoded?.roles?.includes("App.Writer");
+      console.log('has role....', hasRole,' ', decoded?.roles?.includes("App.Manage") );
+    })
     .catch(err => console.log('error...', err));
   }, [])
   
