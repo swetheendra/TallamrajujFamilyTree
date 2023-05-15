@@ -19,7 +19,7 @@ if (!msalInstance.getActiveAccount() && msalInstance.getAllAccounts().length > 0
   msalInstance.setActiveAccount(msalInstance.getAllAccounts()[0]);
   console.log('ins act.....');
 }
-console.log('app....', msalInstance);
+console.log('app and active....', msalInstance,' ', msalInstance.getActiveAccount());
 
 /*
 var tokenRequest = {

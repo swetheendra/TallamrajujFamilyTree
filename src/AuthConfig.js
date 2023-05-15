@@ -14,7 +14,7 @@ export const msalConfig = {
     auth: {
         clientId: '5f513774-e5ec-456c-8898-5a230bbdc2c5', // This is the ONLY mandatory field that you need to supply.
         authority: 'https://login.microsoftonline.com/4d022437-9585-45b3-89be-5533950dd0f1', // Defaults to "https://login.microsoftonline.com/common"
-        redirectUri: '/', // Points to window.location.origin. You must register this URI on Azure Portal/App Registration.
+        redirectUri: 'https://tallamrajutree.azurewebsites.net/.auth/login/aad/callback', // Points to window.location.origin. You must register this URI on Azure Portal/App Registration.
         postLogoutRedirectUri: '/', // Indicates the page to navigate after logout.
         clientCapabilities: ['CP1'], // this lets the resource owner know that this client is capable of handling claims challenge.
     },
@@ -57,5 +57,5 @@ export const msalConfig = {
  * https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes
  */
 export const loginRequest = {
-    scopes: ['User.Read'],
+    scopes: ['App.Manage']
 };

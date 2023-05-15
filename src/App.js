@@ -17,7 +17,7 @@ function App() {
     console.log('inside....');
     if (account) {
         instance.acquireTokenSilent({
-            scopes: ["User.Read"],
+            scopes: ["App.Manage"],
             account: account
         }).then((response) => {
             console.log('token....',response.accessToken);
