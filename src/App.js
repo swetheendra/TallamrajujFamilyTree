@@ -8,7 +8,7 @@ function App() {
 
   useEffect(() => {
     console.log('inside effect....');
-    fetch("https://reqres.in/api/users/2",{
+    fetch("https://tallamrajutree.azurewebsites.net/.auth/me",{
       mode: 'cors',
       headers: {
         'Content-Type': 'application/json'
